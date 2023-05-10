@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WotClan.Personnel", "src\WotClan.Personnel\WotClan.Personnel.csproj", "{14A514B3-8A1E-427A-94D1-12FB06BB7D50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_solution", "_solution", "{8E7AB188-B056-443C-AE82-8279CB672C77}"
+	ProjectSection(SolutionItems) = preProject
+		build.sh = build.sh
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		changelog.md = changelog.md
+		Directory.Packages.props = Directory.Packages.props
+		global.json = global.json
+		README.md = README.md
+		roadmap.md = roadmap.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E3B5DF84-97B8-4CE9-B921-E83588ECC1D8}"
+	ProjectSection(SolutionItems) = preProject
+		src\BannedSymbols.txt = src\BannedSymbols.txt
+		src\Directory.Build.props = src\Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E833DB4A-D28B-419A-B645-3A21CE2DE8F1}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Directory.Build.props = tests\Directory.Build.props
+		tests\xunit.runner.json = tests\xunit.runner.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WotClan.Personnel.Tests", "tests\WotClan.Personnel.Tests\WotClan.Personnel.Tests.csproj", "{ACE10E62-23A0-4914-A588-51F372B539B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14A514B3-8A1E-427A-94D1-12FB06BB7D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A514B3-8A1E-427A-94D1-12FB06BB7D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A514B3-8A1E-427A-94D1-12FB06BB7D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A514B3-8A1E-427A-94D1-12FB06BB7D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACE10E62-23A0-4914-A588-51F372B539B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACE10E62-23A0-4914-A588-51F372B539B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACE10E62-23A0-4914-A588-51F372B539B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACE10E62-23A0-4914-A588-51F372B539B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E3B5DF84-97B8-4CE9-B921-E83588ECC1D8} = {8E7AB188-B056-443C-AE82-8279CB672C77}
+		{E833DB4A-D28B-419A-B645-3A21CE2DE8F1} = {8E7AB188-B056-443C-AE82-8279CB672C77}
+	EndGlobalSection
+EndGlobal

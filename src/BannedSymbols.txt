@@ -1,0 +1,4 @@
+P:System.DateTimeOffset.Now;Use Fabric.Nucleus.Clock.ISystemClock instead
+P:System.DateTimeOffset.UtcNow;Use Fabric.Nucleus.Clock.ISystemClock instead
+P:System.DateTime.Now;Use Fabric.Nucleus.Clock.ISystemClock instead
+P:System.DateTime.UtcNow;Use Fabric.Nucleus.Clock.ISystemClock instead

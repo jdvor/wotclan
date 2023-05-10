@@ -1,0 +1,24 @@
+﻿ARG SDK="7.0"
+
+FROM mcr.microsoft.com/dotnet/sdk:$SDK AS build
+
+ARG VERSION_PREFIX="1.0.0"
+ARG VERSION_SUFFIX=""
+ARG CI_BUILD_NO=0
+ARG QUALITY="relaxed"
+
+
+SHELL ["/bin/bash", "-c"]
+RUN apt update && apt install -y zip && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+
+COPY .deps/ ./
+RUN dotnet restore
+
+COPY . ./
+RUN ./build.sh -v "$VERSION_PREFIX" -s "$VERSION_SUFFIX" -c $CI_BUILD_NO -q "$QUALITY" --skip-restore
+
+FROM alpine:3.17.3 AS export
+WORKDIR /publish
+COPY --from=build /app/publish .
+ENTRYPOINT ["bin/sh"]
