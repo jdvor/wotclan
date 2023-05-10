@@ -249,7 +249,7 @@ if [ "$build_apps" == 'True' ]; then
 
             dotnet "${args[@]}"
 
-            find $app_output_dir -name '*.pdb' | xargs rm
+            find $app_output_dir -name '*.pdb' | xargs -r rm
 
             if [[ "$rid" == 'win'* ]]; then
                 zip -jq "$output_dir/${app}_$rid.zip" $app_output_dir/*
