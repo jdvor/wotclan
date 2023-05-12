@@ -24,6 +24,11 @@ wcp fetch {clan-id} -t Days28 -b Skirmish -o csv -d {directory-for-result}
 ## Command: fetch
 Download or print players summary for given battle mode and available time period.
 
+Unless specific name for the output file is provided one is derived automatically based on current date, 
+selected timeframe and battle type.<br/>
+The pattern is `yyyy-MM-dd_HHmmss_{battle-type}_{time-frame}.{extension}`, so for example the result could be 
+`2023-05-12_195204_skirmish_28d.xlsx`.
+
 ```shell
 wcp fetch {clan-id} [ options ]
 ```
