@@ -30,6 +30,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E833DB4A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WotClan.Personnel.Tests", "tests\WotClan.Personnel.Tests\WotClan.Personnel.Tests.csproj", "{ACE10E62-23A0-4914-A588-51F372B539B6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{22768F5D-6F8B-4530-BB0E-1C3BB1FCA504}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{7C25CE98-55F4-4310-BBC6-5EFDFE03F3AD}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +55,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E3B5DF84-97B8-4CE9-B921-E83588ECC1D8} = {8E7AB188-B056-443C-AE82-8279CB672C77}
 		{E833DB4A-D28B-419A-B645-3A21CE2DE8F1} = {8E7AB188-B056-443C-AE82-8279CB672C77}
+		{22768F5D-6F8B-4530-BB0E-1C3BB1FCA504} = {8E7AB188-B056-443C-AE82-8279CB672C77}
+		{7C25CE98-55F4-4310-BBC6-5EFDFE03F3AD} = {22768F5D-6F8B-4530-BB0E-1C3BB1FCA504}
 	EndGlobalSection
 EndGlobal

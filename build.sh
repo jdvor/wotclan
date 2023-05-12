@@ -252,9 +252,9 @@ if [ "$build_apps" == 'True' ]; then
             find $app_output_dir -name '*.pdb' | xargs -r rm
 
             if [[ "$rid" == 'win'* ]]; then
-                zip -jq "$output_dir/${app}_$rid.zip" $app_output_dir/*
+                zip -jq "$output_dir/${app}_${full_version}_$rid.zip" $app_output_dir/*
             else
-                tar -C "$app_output_dir" -czf "$output_dir/${app}_$rid.tar.gz" .
+                tar -C "$app_output_dir" -czf "$output_dir/${app}_${full_version}_$rid.tar.gz" .
             fi
         done
 

@@ -1,6 +1,6 @@
 # WotClan.Personnel (wcp) Console Application
 
-Console (terminal) application which is able to scrape 
+Console (terminal) application which is able to scrape Military Personnel summary of the Wargaming's Clan Portal.
 
 * [Changelog](changelog.md)
 * [Roadmap](roadmap.md)
