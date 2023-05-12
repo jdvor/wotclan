@@ -30,10 +30,16 @@ jobs:
         shell: bash
         run: ./build.sh
 
+      - name: Find release tag
+        run: |
+          echo "release_tag=`git tag 2> /dev/null | grep -P '^\d+\.\d+\.\d+(-[a-z0-9]+)?$' | sort -V | tail -1`" >> $GITHUB_ENV
+
       - name: Create release
         uses: softprops/action-gh-release@v1
         #if: startsWith(github.ref, 'refs/tags/')
         with:
+          tag_name: ${{ env.release_tag }}
+          target_commitish: master
           files: |
             publish/*.zip
             publish/*.tar.gz
