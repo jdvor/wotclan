@@ -1,11 +1,15 @@
 ﻿namespace WotClan.Personnel;
 
 using Spectre.Console.Cli;
-using System.Text.Json;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
 
 public sealed class FetchCommand : AsyncCommand<FetchCommand.Settings>
 {
+    [DynamicDependency(DynamicallyAccessedMemberTypes.All, "WotClan.Personnel.FetchCommand.Settings", "wcp")]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.All, "WotClan.Personnel.PersonnelResponse", "wcp")]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.All, "WotClan.Personnel.PersonnelResponse.Player", "wcp")]
     public override async Task<int> ExecuteAsync(CommandContext context, Settings settings)
     {
         using var cts = new CancellationTokenSource();
@@ -84,7 +88,6 @@ public sealed class FetchCommand : AsyncCommand<FetchCommand.Settings>
     {
         var tf = timeFrame.ToHttp();
         var bt = battleType.ToHttp();
-        // offset=0&limit=100&
         return $"/clans/wot/{clanId}/api/players/?timeframe={tf}&battle_type={bt}";
     }
 
@@ -94,7 +97,7 @@ public sealed class FetchCommand : AsyncCommand<FetchCommand.Settings>
         {
             if (!string.IsNullOrEmpty(path))
             {
-                var ext = Path.GetExtension(path)?.ToLowerInvariant();
+                var ext = Path.GetExtension(path).ToLowerInvariant();
                 if (ext != endsWith)
                 {
                     throw new InvalidOperationException();
@@ -115,7 +118,7 @@ public sealed class FetchCommand : AsyncCommand<FetchCommand.Settings>
             default:
                 if (!string.IsNullOrEmpty(settings.OutputFile))
                 {
-                    var ext = Path.GetExtension(settings.OutputFile)?.ToLowerInvariant();
+                    var ext = Path.GetExtension(settings.OutputFile).ToLowerInvariant();
                     return ext switch
                     {
                         ".csv" => OutputType.Csv,
@@ -150,7 +153,9 @@ public sealed class FetchCommand : AsyncCommand<FetchCommand.Settings>
 
     private static string CreateFileName(OutputType effectiveOutputType, Settings settings)
     {
+#pragma warning disable RS0030
         var now = DateTime.UtcNow;
+#pragma warning restore RS0030
         var ext = effectiveOutputType switch
         {
             OutputType.Xlsx => "xlsx",
@@ -177,7 +182,7 @@ public sealed class FetchCommand : AsyncCommand<FetchCommand.Settings>
         return $"{now:yyyy-MM-dd}_{now:HHmmss}_{bt}_{tf}.{ext}";
     }
 
-    public class Settings : CommandSettings
+    public sealed class Settings : CommandSettings
     {
         [CommandArgument(0, "[ClanId]")]
         [Description("Clan ID")]

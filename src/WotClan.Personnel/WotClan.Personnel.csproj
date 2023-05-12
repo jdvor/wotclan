@@ -11,7 +11,7 @@
     <PropertyGroup Condition="'$(Configuration)'=='Release'">
         <PublishSingleFile>true</PublishSingleFile>
         <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
-        <PublishTrimmed>true</PublishTrimmed>
+        <PublishTrimmed>true</PublishTrimmed>        
         <SelfContained>true</SelfContained>
         <DebugType>embedded</DebugType>
         <!-- Do NOT remove the space after last RID -->
@@ -20,7 +20,10 @@
 
     <ItemGroup>
       <PackageReference Include="EPPlus" />
-      <PackageReference Include="Spectre.Console.Cli" />
+      <PackageReference Include="Spectre.Console.Cli">
+        <IsTrimmable>false</IsTrimmable>
+      </PackageReference>
+      <TrimmerRootAssembly Include="Spectre.Console.Cli" />
     </ItemGroup>
 
 </Project>
